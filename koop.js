@@ -54,7 +54,8 @@ if (Meteor .isClient) {
     },
     "click .delete"() {
       if (confirm("Usunąć produkt?")){
-        Products.remove(this._id);
+        var productsId = this._id;
+        Meteor.call('deleteProduct', productsId);
       }
     },
 
@@ -155,5 +156,8 @@ Meteor.methods({
   },
   deleteOrder(orderId){
      Orders.remove(orderId);
+  },
+  deleteProduct(productsId){
+    Products.remove(productsId);
   },
 });
