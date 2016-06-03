@@ -1,6 +1,8 @@
 // Zrób scheme, żeby methods przyjmowały tylko odpowiednie typy danych
-// Stwórz typy użytkowników i do walidacje po typach http://guide.meteor.com/accounts.html#roles-and-permissions
-//routing https://kadira.io/academy/meteor-routing-guide/content/implementing-auth-logic-and-permissions
+// W trakcie dodawania zamówienia, niech zmniejsza się ilość produktu (error jest)
+// Możliwość zaznaczenia przy rejestracji czy konto to kooperant czy producent
+// Stwórz konto admina
+// Admin zatwierdza użytkowników
 
 
 if (Meteor .isClient) {
@@ -99,13 +101,15 @@ if (Meteor .isClient) {
         var createdAt = new Date();
         var owner = Meteor.userId();
         var unit = event.target.unit.value;
+        var quantity = event.target.quantity.value;
 
-        Meteor.call('insertProduct', productName, producer, price, createdAt, owner, unit);
+        Meteor.call('insertProduct', productName, producer, price, createdAt, owner, unit, quantity);
 
         //Clear textboxes in the form
         event.target.productName.value = "";
         event.target.producer.value = "";
         event.target.price.value = "";
+        event.target.quantity.value = "";
     },
   });
 }

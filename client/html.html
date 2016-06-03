@@ -37,14 +37,22 @@
 	  			<td>{{price}} zł/{{unit}}</td>
 	  			<td>
 	  				{{#if currentUser}}
-						<form class="orderProduct">
-							<input type="number" name="quantity" min="0" max="10" step="0.1" />
-							<button class="submit">ok</button>
-						</form>
+                        {{#if isInRole 'buyer'}}
+                            <form class="orderProduct">
+                                <input type="number" name="quantity" min="0" max="10" step="0.1" />
+                                /{{quantity}}
+                                <button class="submit">ok</button>
+                            </form>
+                        {{/if}}
+                        {{#if isInRole 'seller'}}
+                            {{quantity}}
+                        {{/if}}
 					{{/if}}
 				</td>
 				{{#if currentUser}}
-					<td><button class="delete">&times;</button></td>
+                    {{#if isInRole 'seller'}}
+					    <td><button class="delete">&times;</button></td>
+                    {{/if}}
 				{{/if}}
 			</tr>
 			{{/each}}
@@ -54,39 +62,44 @@
 
 <template name="ordersList">
 	{{#if currentUser}}
-	<h2>Zamówienie</h2>
-	<table>
-		<thead>
-				<tr>
-	 				<th>Ilość</th>
-	 				<th>Nazwa</th>
-	 				<th>Producent</th>
-	 				<th>Cena</th>
-	 				<th></th>
-	 			</tr>
-		</thead>
-		<tbody>
-			{{#each showOrders}}
-				<tr>
-					<td>{{quantity}} {{unit}}</td>
-			 		<td>{{productName}}</td>
-					<td>{{producer}}</td>
-					<td>{{summedPrice}}</td>
-					<td><button class="delete">&times;</button></td>
-			 	</tr>
-		 	{{/each}}
-	 	</tbody>
- 	</table>
- 	{{/if}}
+        {{#if isInRole 'buyer'}}
+            <h2>Zamówienie</h2>
+            <table>
+                <thead>
+                        <tr>
+                            <th>Ilość</th>
+                            <th>Nazwa</th>
+                            <th>Producent</th>
+                            <th>Cena</th>
+                            <th></th>
+                        </tr>
+                </thead>
+                <tbody>
+                    {{#each showOrders}}
+                        <tr>
+                            <td>{{quantity}} {{unit}}</td>
+                            <td>{{productName}}</td>
+                            <td>{{producer}}</td>
+                            <td>{{summedPrice}}</td>
+                            <td><button class="delete">&times;</button></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+    {{/if}}
 </template>
 
 <template name="insertProduct">
-	<form class="insertProduct">
- 		<input type="text" name="productName" placeholder="Nazwa produktu" />
- 		<input type="text" name="producer" placeholder="Producent" />
- 		<input type="number" name="price" placeholder="Cena" />
- 		<input type="radio" name="unit" value="kg" checked/>kg
- 		<input type="radio" name="unit" value="szt"/>szt.
- 		<input type="submit" value="Dodaj produkt" class="submitProd">
- 	</form>
+    {{#if isInRole 'seller'}}
+        <form class="insertProduct">
+            <input type="text" name="productName" placeholder="Nazwa produktu" />
+            <input type="text" name="producer" placeholder="Producent" />
+            <input type="number" name="price" placeholder="Cena" />
+            <input type="number" name="quantity" placeholder="Ilość" />
+            <input type="radio" name="unit" value="kg" checked/>kg
+            <input type="radio" name="unit" value="szt"/>szt.
+            <input type="submit" value="Dodaj produkt" class="submitProd">
+        </form>
+    {{/if}}
 </template>
