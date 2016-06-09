@@ -93,9 +93,11 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/spacebars-compiler/1.0.11/web.browser/templatetag.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/ddp-client/1.2.7/web.browser/client_convenience.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/http/1.1.5/web.browser/httpcall_server.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/materialize_materialize/0.97.5/web.browser/dist/css/materialize.css" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/spacebars-compiler/1.0.11/web.browser/codegen.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/ddp-client/1.2.7/web.browser/id_map.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/http/1.1.5/web.browser/httpcall_client.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/materialize_materialize/0.97.5/web.browser/dist/js/materialize.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/spacebars-compiler/1.0.11/web.browser/optimizer.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/srp/1.0.8/web.browser/srp.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/srp/1.0.8/web.browser/biginteger.js" />
@@ -272,9 +274,11 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/spacebars-compiler/1.0.11/web.browser/templatetag.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/ddp-client/1.2.7/web.browser/client_convenience.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/http/1.1.5/web.browser/httpcall_server.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/materialize_materialize/0.97.5/web.browser/dist/css/materialize.css" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/spacebars-compiler/1.0.11/web.browser/codegen.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/ddp-client/1.2.7/web.browser/id_map.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/http/1.1.5/web.browser/httpcall_client.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/materialize_materialize/0.97.5/web.browser/dist/js/materialize.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/spacebars-compiler/1.0.11/web.browser/optimizer.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/srp/1.0.8/web.browser/srp.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/srp/1.0.8/web.browser/biginteger.js" />

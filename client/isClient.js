@@ -1,4 +1,8 @@
+// ERROR nie pokazuje listy zamówień dopóki się nie odświeży
+// Osobne productlisty dla producenta i klienta
 // Zrób scheme, żeby methods przyjmowały tylko odpowiednie typy danych
+// Niech wyświetla się w liście produktów ilość zamówienia (być może zrobienie jednej bazy konieczne)
+// Dostosuj szerokość input w liście produktów
 // W trakcie dodawania zamówienia, niech zmniejsza się ilość produktu (error jest)
 // Możliwość zaznaczenia przy rejestracji czy konto to kooperant czy producent
 // Stwórz konto admina
@@ -38,6 +42,20 @@ if (Meteor .isClient) {
   });
 
   Template.productsList.events({
+    "blur .orderProduct"(event) {
+      //Submit a product to Orders collection
+      event.preventDefault();
+      var quantity = event.target.value;
+      var productName = this.productName;
+      var producer = this.producer;
+      var productsId = this._id;
+      var unit = this.unit;
+      var price = this.price;
+      var summedPrice = price * quantity;
+
+      Meteor.call('insertOrder', productsId, productName, producer, quantity, unit,
+       price, summedPrice);
+    },
     "submit .orderProduct"(event) {
       //Submit a product to Orders collection
       event.preventDefault();
@@ -50,7 +68,7 @@ if (Meteor .isClient) {
       var summedPrice = price * quantity;
 
       Meteor.call('insertOrder', productsId, productName, producer, quantity, unit,
-       price, summedPrice);
+          price, summedPrice);
     },
     "click .delete"() {
       if (confirm("Usunąć produkt?")){

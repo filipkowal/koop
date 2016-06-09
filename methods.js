@@ -35,7 +35,8 @@ Meteor.methods({
         // Check if current user has a buyer role
         var loggedInUser = Meteor.user();
         if (!loggedInUser ||
-            !Roles.userIsInRole(loggedInUser, 'buyer')) {
+            !Roles.userIsInRole(loggedInUser, 'buyer') ||
+            quantity=="") {
             throw new Meteor.Error(403, "Access denied")
         }
         Orders.upsert({

@@ -1,28 +1,39 @@
 <!-- napraw sume order w foot -->
 <head>
  	<title>Wawelska Kooperatywa Spożywcza</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-	<header>
-		{{>loginButtons}}
-	 	<h1>Wawelska Kooperatywa Spożywcza</h1>
-	 	{{>insertProduct}}
-	</header>
-	<main>
-		{{>productsList}}
-		{{>ordersList}}
-	</main>
+    <div class="container">
+        <header>
+            <div class="chip">{{>loginButtons}}</div>
+            <h3 class="center">Wawelska Kooperatywa Spożywcza</h3>
+            {{>insertProduct}}
+        </header>
+        <main>
+            <div class="row">
+                <div class="col s8">
+                    {{>productsList}}
+                </div>
+                <div class="col s4">
+                    {{>ordersList}}
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 
 <template name="productsList">
-	<h2>Lista produktów</h2>
- 	<table id="productsList">
+
+ 	<table id="productsList centered">
+        <caption><h5>Lista produktów</h5></caption>
  		<thead>
  			<tr>
  				<th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
  				<th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
  				<th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
+                <th>Max</th>
  				{{#if currentUser}}
  					<th>Ilość</th>
  				{{/if}}
@@ -35,23 +46,27 @@
   				<td>{{productName}}</td>
 	  			<td>{{producer}}</td>
 	  			<td>{{price}} zł/{{unit}}</td>
+                <td>{{quantity}}</td>
 	  			<td>
+                    <!--<div class="col s6">-->
 	  				{{#if currentUser}}
                         {{#if isInRole 'buyer'}}
                             <form class="orderProduct">
-                                <input type="number" name="quantity" min="0" max="10" step="0.1" />
-                                /{{quantity}}
-                                <button class="submit">ok</button>
+                                <input type="text" name="quantity" min="0" max="10" step="0.1" class="orderProduct quantity" />
+                                <!--<button class="submit waves-effect waves-light btn col s7">ok</button>-->
                             </form>
                         {{/if}}
                         {{#if isInRole 'seller'}}
                             {{quantity}}
                         {{/if}}
 					{{/if}}
+                    <!--</div>-->
 				</td>
 				{{#if currentUser}}
                     {{#if isInRole 'seller'}}
-					    <td><button class="delete">&times;</button></td>
+					    <td><button class="delete waves-effect waves-teal btn-flat">
+                            <i class="material-icons delete">close</i>
+                        </button></td>
                     {{/if}}
 				{{/if}}
 			</tr>
@@ -63,8 +78,8 @@
 <template name="ordersList">
 	{{#if currentUser}}
         {{#if isInRole 'buyer'}}
-            <h2>Zamówienie</h2>
             <table>
+                <caption><h5>Zamówienie</h5></caption>
                 <thead>
                         <tr>
                             <th>Ilość</th>
@@ -81,7 +96,9 @@
                             <td>{{productName}}</td>
                             <td>{{producer}}</td>
                             <td>{{summedPrice}}</td>
-                            <td><button class="delete">&times;</button></td>
+                            <td><button class="delete waves-effect waves-teal btn-flat">
+                                <i class="material-icons delete">close</i>
+                            </button></td>
                         </tr>
                     {{/each}}
                 </tbody>
@@ -95,11 +112,15 @@
         <form class="insertProduct">
             <input type="text" name="productName" placeholder="Nazwa produktu" />
             <input type="text" name="producer" placeholder="Producent" />
-            <input type="number" name="price" placeholder="Cena" />
-            <input type="number" name="quantity" placeholder="Ilość" />
-            <input type="radio" name="unit" value="kg" checked/>kg
-            <input type="radio" name="unit" value="szt"/>szt.
-            <input type="submit" value="Dodaj produkt" class="submitProd">
+            <input type="text" name="price" placeholder="Cena" />
+            <input type="text" name="quantity" placeholder="Ilość" />
+            <!--<input type="radio" name="unit" value="kg" checked/>kg-->
+            <!--<input type="radio" name="unit" value="szt"/>szt.-->
+            <input name="unit" type="radio" id="kg" value="kg" checked/>
+            <label for="kg">kg</label>
+            <input name="unit" type="radio" id="szt" value="szt." />
+            <label for="szt">szt.</label>
+            <input type="submit" value="Dodaj produkt" class="submitProd waves-effect waves-teal btn">
         </form>
     {{/if}}
 </template>
