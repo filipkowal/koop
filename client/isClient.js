@@ -57,21 +57,6 @@ if (Meteor .isClient) {
   });
 
   Template.productsList.events({
-    // "change .orderProduct"(event) {
-    //   console.log("blur");
-    //   //Submit a product to Orders collection
-    //   event.preventDefault();
-    //   var quantity = event.target.value;
-    //   var productName = this.productName;
-    //   var producer = this.producer;
-    //   var productsId = this._id;
-    //   var unit = this.unit;
-    //   var price = this.price;
-    //   var summedPrice = price * quantity;
-    //
-    //   Meteor.call('insertOrder', productsId, productName, producer, quantity, unit,
-    //    price, summedPrice);
-    // },
     "change .orderProduct"(event) {
       //Submit a product to Orders collection
       console.log("change");

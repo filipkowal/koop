@@ -42,85 +42,119 @@
 </body>
 
 <template name="productsList">
-
- 	<table id="productsList centered">
-        <caption><h5>Lista produktów</h5></caption>
- 		<thead>
- 			<tr>
- 				<th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
- 				<th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
- 				<th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
-                <th>Max</th>
- 				{{#if currentUser}}
- 					<th>Ilość</th>
- 				{{/if}}
- 			</tr>
- 		</thead>
- 		<!-- <tfoot><tr><td>Pusto!{{orderSum}}</td></tr></tfoot> -->
- 		<tbody>
-			{{#each showProducts}}
-  			<tr>
-  				<td>{{productName}}</td>
-	  			<td>{{producer}}</td>
-	  			<td>{{price}} zł/{{unit}}</td>
-                <td>{{quantity}}</td>
-	  			<td>
-                    <!--<div class="col s6">-->
-	  				{{#if currentUser}}
-                        {{#if isInRole 'buyer'}}
-                            <!--<form class="orderProduct">-->
-                                <input type="text" name="quantity" min="0" max="10" step="0.1" class="orderProduct quantity" />
-                                <!--<button class="submit waves-effect waves-light btn col s7">ok</button>-->
-                            <!--</form>-->
-                        {{/if}}
-                        {{#if isInRole 'seller'}}
-                            {{quantity}}
-                        {{/if}}
-					{{/if}}
-                    <!--</div>-->
-				</td>
-				{{#if currentUser}}
-                    {{#if isInRole 'seller'}}
-					    <td><button class="delete waves-effect waves-teal btn-flat">
-                            <i class="material-icons delete">close</i>
-                        </button></td>
-                    {{/if}}
-				{{/if}}
-			</tr>
-			{{/each}}
-		</tbody>
-	</table>
-</template>
-
-<template name="ordersList">
-	{{#if currentUser}}
+    {{#if currentUser}}
+        <!--BUYERS PRODUCTS LIST-->
         {{#if isInRole 'buyer'}}
-            <table>
-                <caption><h5>Zamówienie</h5></caption>
+            <table id="productsList centered">
+                <caption><h5>Lista produktów</h5></caption>
                 <thead>
-                        <tr>
-                            <th>Ilość</th>
-                            <th>Nazwa</th>
-                            <th>Producent</th>
-                            <th>Cena</th>
-                            <th></th>
-                        </tr>
+                <tr>
+                    <th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
+                    <th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
+                    <th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
+                    <th>Max</th>
+                    <th>Ilość</th>
+                </tr>
                 </thead>
+                <!-- <tfoot><tr><td>Pusto!{{orderSum}}</td></tr></tfoot> -->
                 <tbody>
-                    {{#each showOrders}}
-                        <tr>
-                            <td>{{quantity}} {{unit}}</td>
-                            <td>{{productName}}</td>
-                            <td>{{producer}}</td>
-                            <td>{{summedPrice}}</td>
-                            <td><button class="delete waves-effect waves-teal btn-flat">
-                                <i class="material-icons delete">close</i>
-                            </button></td>
-                        </tr>
-                    {{/each}}
+                {{#each showProducts}}
+                    <tr>
+                        <td>{{productName}}</td>
+                        <td>{{producer}}</td>
+                        <td>{{price}} zł/{{unit}}</td>
+                        <td>{{quantity}}</td>
+                        <td>
+                            <!--<div class="col s6">-->
+                            <input type="text" name="quantity" min="0" max="10" step="0.1" class="orderProduct quantity" />
+                            <!--</div>-->
+                        </td>
+                    </tr>
+                {{/each}}
                 </tbody>
             </table>
         {{/if}}
+        <!--SELLERS PRODUCTS LIST-->
+        {{#if isInRole 'seller'}}
+        <table id="productsList centered">
+            <caption><h5>Lista produktów</h5></caption>
+            <thead>
+                <tr>
+                    <th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
+                    <th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
+                    <th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
+                    <th>Max</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each showProducts}}
+                <tr>
+                    <td>{{productName}}</td>
+                    <td>{{producer}}</td>
+                    <td>{{price}} zł/{{unit}}</td>
+                    <td>{{quantity}}</td>
+                    <td><button class="delete waves-effect waves-teal btn-flat">
+                        <i class="material-icons delete">close</i>
+                    </button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+    {{else}}
+        <!--LOGGED OUT PRODUCTS LIST-->
+        <table id="productsList centered">
+            <caption><h5>Lista produktów</h5></caption>
+            <thead>
+            <tr>
+                <th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
+                <th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
+                <th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
+                <th>Max</th>
+            </tr>
+            </thead>
+            <!-- <tfoot><tr><td>Pusto!{{orderSum}}</td></tr></tfoot> -->
+            <tbody>
+            {{#each showProducts}}
+                <tr>
+                    <td>{{productName}}</td>
+                    <td>{{producer}}</td>
+                    <td>{{price}} zł/{{unit}}</td>
+                    <td>{{quantity}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    {{/if}}
+</template>
+
+<template name="ordersList">
+    {{#if isInRole 'buyer'}}
+        <table>
+            <caption><h5>Zamówienie</h5></caption>
+            <thead>
+                    <tr>
+                        <th>Ilość</th>
+                        <th>Nazwa</th>
+                        <th>Producent</th>
+                        <th>Cena</th>
+                        <th></th>
+                    </tr>
+            </thead>
+            <tbody>
+                {{#each showOrders}}
+                    <tr>
+                        <td>{{quantity}} {{unit}}</td>
+                        <td>{{productName}}</td>
+                        <td>{{producer}}</td>
+                        <td>{{summedPrice}}</td>
+                        <td><button class="delete waves-effect waves-teal btn-flat">
+                            <i class="material-icons delete">close</i>
+                        </button></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
     {{/if}}
 </template>
 
