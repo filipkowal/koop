@@ -13,6 +13,21 @@ if (Meteor .isClient) {
   Meteor.subscribe('Products');
   Meteor.subscribe('Orders');
 
+  Template.body.events({
+    "click .login"() {
+      $('#modal1').openModal()
+    },
+    "click .logout"() {
+      AccountsTemplates.logout();
+    }
+  });
+
+  Template.atForm.events({
+    "submit"() {
+      $('#modal1').closeModal();
+    }
+  });
+
   Template.productsList.helpers({
     //List the products from the Products collection
     showProducts() {
@@ -42,24 +57,26 @@ if (Meteor .isClient) {
   });
 
   Template.productsList.events({
-    "blur .orderProduct"(event) {
+    // "change .orderProduct"(event) {
+    //   console.log("blur");
+    //   //Submit a product to Orders collection
+    //   event.preventDefault();
+    //   var quantity = event.target.value;
+    //   var productName = this.productName;
+    //   var producer = this.producer;
+    //   var productsId = this._id;
+    //   var unit = this.unit;
+    //   var price = this.price;
+    //   var summedPrice = price * quantity;
+    //
+    //   Meteor.call('insertOrder', productsId, productName, producer, quantity, unit,
+    //    price, summedPrice);
+    // },
+    "change .orderProduct"(event) {
       //Submit a product to Orders collection
+      console.log("change");
       event.preventDefault();
       var quantity = event.target.value;
-      var productName = this.productName;
-      var producer = this.producer;
-      var productsId = this._id;
-      var unit = this.unit;
-      var price = this.price;
-      var summedPrice = price * quantity;
-
-      Meteor.call('insertOrder', productsId, productName, producer, quantity, unit,
-       price, summedPrice);
-    },
-    "submit .orderProduct"(event) {
-      //Submit a product to Orders collection
-      event.preventDefault();
-      var quantity = event.target.quantity.value;
       var productName = this.productName;
       var producer = this.producer;
       var productsId = this._id;

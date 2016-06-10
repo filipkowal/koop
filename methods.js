@@ -35,26 +35,31 @@ Meteor.methods({
         // Check if current user has a buyer role
         var loggedInUser = Meteor.user();
         if (!loggedInUser ||
-            !Roles.userIsInRole(loggedInUser, 'buyer') ||
-            quantity=="") {
+            !Roles.userIsInRole(loggedInUser, 'buyer')) {
             throw new Meteor.Error(403, "Access denied")
         }
-        Orders.upsert({
-                _id: productsId
-            },
-            {$setOnInsert: {
-                _id: productsId,
-                productName: productName,
-                producer: producer,
-                unit: unit,
-                price: price,
-                purchaser: Meteor.userId()
-            },
-                $set: {
-                    quantity: quantity,
-                    createdAt: new Date(),
-                    summedPrice: summedPrice}}
-        );
+        if (quantity!="") {
+            console.log("Added to OrdersList");
+            Orders.upsert({
+                    productsId: productsId
+                },
+                {
+                    $setOnInsert: {
+                        productsId: productsId,
+                        productName: productName,
+                        producer: producer,
+                        unit: unit,
+                        price: price,
+                        purchaser: Meteor.userId()
+                    },
+                    $set: {
+                        quantity: quantity,
+                        createdAt: new Date(),
+                        summedPrice: summedPrice
+                    }
+                }
+            );
+        }
         // Change quantity of product that is left
         //Error invoking Method 'insertOrder': Internal server error [500]
         // var orderedQuantity = -1 * quantity;
