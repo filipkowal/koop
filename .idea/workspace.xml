@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d55cb59-dbbc-4bfc-9fb3-cfee533724ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/isClient.js" afterPath="$PROJECT_DIR$/client/isClient.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md.txt" afterPath="$PROJECT_DIR$/readme.md.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/isServer.js" afterPath="$PROJECT_DIR$/server/isServer.js" />
-    </list>
+    <list default="true" id="8d55cb59-dbbc-4bfc-9fb3-cfee533724ec" name="Default" comment="" />
     <ignored path="koop.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -271,12 +266,12 @@
       <workItem from="1465491555098" duration="11797000" />
       <workItem from="1465549726566" duration="10232000" />
       <workItem from="1465587250152" duration="6000" />
-      <workItem from="1465902029711" duration="1198000" />
+      <workItem from="1465902029711" duration="1373000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40676000" />
+    <option name="totallyTimeSpent" value="40851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="793" y="0" width="814" height="907" extended-state="0" />
