@@ -99,6 +99,7 @@ if (Meteor .isClient) {
 
   Template.ordersList.helpers({
     showOrders() {
+      console.log("showOrders");
       return Orders.find({}, {sort: {createdAt: -1}});
     },
     orderSum() {

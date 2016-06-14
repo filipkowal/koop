@@ -33,6 +33,7 @@ if (Meteor.isServer) {
     Meteor.publish('Orders', function(){
         // Publish orders only to buyer role and show only he's own orders
         if (Roles.userIsInRole(this.userId, 'buyer')) {
+            console.log("Orders published, user is buyer");
             return Orders.find({purchaser: this.userId});
         } else {
             // user not authorized. do not publish secrets
