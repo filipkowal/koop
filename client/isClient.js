@@ -10,8 +10,6 @@
 
 
 if (Meteor .isClient) {
-  Meteor.subscribe('Products');
-  Meteor.subscribe('Orders');
 
   Template.body.events({
     "click .login"() {
@@ -26,6 +24,13 @@ if (Meteor .isClient) {
     "submit"() {
       $('#modal1').closeModal();
     }
+  });
+  //SUBSCRIBE TO PRODUCTS WHEN PRODUCTLIST TEMPLATE IS CREATED
+  Template.productsList.onCreated( function(){
+    this.autorun(() => {
+      this.subscribe('Products');
+      // $('select').material_select();
+    });
   });
 
   Template.productsList.helpers({
@@ -59,7 +64,6 @@ if (Meteor .isClient) {
   Template.productsList.events({
     "change .orderProduct"(event) {
       //Submit a product to Orders collection
-      console.log("change");
       event.preventDefault();
       var quantity = event.target.value;
       var productName = this.productName;
@@ -78,7 +82,6 @@ if (Meteor .isClient) {
         Meteor.call('deleteProduct', productsId);
       }
     },
-
     //TABLE SORTING
     "click .name" () {
       Session.set('sortNameOrder', Session.get('sortOrder') * -1 || -1);
@@ -96,10 +99,21 @@ if (Meteor .isClient) {
       Session.set('sortOrder', Session.get('sortPriceOrder'));
     }
   });
+  //SUBSCRIBE TO ORDERS WHEN ORDERSLIST TEMPLATE IS CREATED
+  Template.ordersList.onCreated( function(){
+    this.autorun(() => {
+      this.subscribe('Orders', Meteor.userId());
+      // if (subscription.ready()) {
+      //   console.log("> Received "+limit+" posts. \n\n")
+      //   instance.loaded.set(limit);
+      // } else {
+      //   console.log("> Subscription is not ready yet. \n\n");
+      // }
+    });
+  });
 
   Template.ordersList.helpers({
     showOrders() {
-      console.log("showOrders");
       return Orders.find({}, {sort: {createdAt: -1}});
     },
     orderSum() {
@@ -113,24 +127,44 @@ if (Meteor .isClient) {
     }
   });
 
+  Template.insertProduct.onRendered(function() {
+    console.log("select initialised");
+    $('select').material_select();
+  });
+  // Template.insertProduct.onCreated(function() {
+  //   console.log("select initialised");
+  //   $('select').material_select();
+  // });
+  // Template.productsList.onRendered(function() {
+  //   $('select').material_select();
+  // });
+  // Template.ordersList.onRendered(function() {
+  //   $('select').material_select();
+  // });
+  // Template.body.onRendered(function() {
+  //   $('select').material_select();
+  // });
+
+
+
   Template.insertProduct.events({
     "submit .insertProduct"(event) {
-        event.preventDefault();
-        var productName = event.target.productName.value;
-        var producer = event.target.producer.value;
-        var price = Number(event.target.price.value);
-        var createdAt = new Date();
-        var owner = Meteor.userId();
-        var unit = event.target.unit.value;
-        var quantity = event.target.quantity.value;
+      event.preventDefault();
+      var productName = event.target.productName.value;
+      var producer = event.target.producer.value;
+      var price = Number(event.target.price.value);
+      var createdAt = new Date();
+      var owner = Meteor.userId();
+      var unit = event.target.unit.value;
+      var quantity = event.target.quantity.value;
 
-        Meteor.call('insertProduct', productName, producer, price, createdAt, owner, unit, quantity);
+      Meteor.call('insertProduct', productName, producer, price, createdAt, owner, unit, quantity);
 
-        //Clear textboxes in the form
-        event.target.productName.value = "";
-        event.target.producer.value = "";
-        event.target.price.value = "";
-        event.target.quantity.value = "";
+      //Clear textboxes in the form
+      event.target.productName.value = "";
+      event.target.producer.value = "";
+      event.target.price.value = "";
+      event.target.quantity.value = "";
     },
   });
 }

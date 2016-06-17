@@ -39,7 +39,6 @@ Meteor.methods({
             throw new Meteor.Error(403, "Access denied")
         }
         if (quantity!="") {
-            console.log("Added to OrdersList");
             Orders.upsert({
                     productsId: productsId
                 },

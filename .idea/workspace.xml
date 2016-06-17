@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="8d55cb59-dbbc-4bfc-9fb3-cfee533724ec" name="Default" comment="" />
+=======
+    <list default="true" id="8d55cb59-dbbc-4bfc-9fb3-cfee533724ec" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/filip.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_npm.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/methods.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/koop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/koop.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/koop.js" afterPath="" />
+    </list>
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
     <ignored path="koop.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,16 +41,22 @@
       <file leaf-file-name="html.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/html.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="476">
               <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="isClient.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="isClient.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/isClient.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1496">
               <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
               <folding>
@@ -46,6 +69,11 @@
                 <element signature="e#2643#2836#0" expanded="false" />
                 <element signature="e#2859#3043#0" expanded="false" />
               </folding>
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
             </state>
           </provider>
         </entry>
@@ -53,8 +81,13 @@
       <file leaf-file-name="methods.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/methods.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="663">
               <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+=======
+            <state relative-caret-position="238">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
               </folding>
@@ -65,8 +98,13 @@
       <file leaf-file-name="isServer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/isServer.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="531">
               <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+=======
+            <state relative-caret-position="136">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
               <folding />
             </state>
           </provider>
@@ -75,8 +113,13 @@
       <file leaf-file-name="css.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/css.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="119">
               <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
               <folding />
             </state>
           </provider>
@@ -99,11 +142,15 @@
       <list>
         <option value="$PROJECT_DIR$/isServer.js" />
         <option value="$PROJECT_DIR$/koop.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/client/css.css" />
         <option value="$PROJECT_DIR$/methods.js" />
         <option value="$PROJECT_DIR$/server/isServer.js" />
         <option value="$PROJECT_DIR$/client/isClient.js" />
         <option value="$PROJECT_DIR$/client/html.html" />
+=======
+        <option value="$PROJECT_DIR$/methods.js" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
       </list>
     </option>
   </component>
@@ -114,8 +161,13 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="793" />
     <option name="width" value="814" />
+=======
+    <option name="x" value="-7" />
+    <option name="width" value="1075" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
     <option name="height" value="907" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -180,7 +232,6 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RunManager" selected="Node.js.koop.js">
     <configuration default="false" name="koop.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="$USER_HOME$/AppData/Local/.meteor/meteor.bat" path-to-js-file="koop.js" working-dir="$PROJECT_DIR$">
@@ -262,19 +313,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1464871441832</updated>
+<<<<<<< HEAD
       <workItem from="1464871444378" duration="17443000" />
       <workItem from="1465491555098" duration="11797000" />
       <workItem from="1465549726566" duration="10232000" />
       <workItem from="1465587250152" duration="6000" />
       <workItem from="1465902029711" duration="1373000" />
+=======
+      <workItem from="1464871444378" duration="2752000" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="40851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="793" y="0" width="814" height="907" extended-state="0" />
+=======
+    <option name="totallyTimeSpent" value="2752000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="0" width="1075" height="907" extended-state="0" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7505423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -308,6 +370,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+<<<<<<< HEAD
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/isServer.js</url>
@@ -321,6 +384,9 @@
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="4" />
+=======
+      <option name="time" value="1" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -384,8 +450,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/isClient.js">
+    <entry file="file://$PROJECT_DIR$/methods.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1496">
           <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
           <folding>
@@ -397,10 +464,17 @@
             <element signature="e#2429#2617#0" expanded="false" />
             <element signature="e#2643#2836#0" expanded="false" />
             <element signature="e#2859#3043#0" expanded="false" />
+=======
+        <state relative-caret-position="238">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/methods.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -415,19 +489,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="35" column="59" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+=======
+    <entry file="file://$PROJECT_DIR$/server/isServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/css.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="119">
           <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/html.html">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -463,13 +549,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/isServer.js">
+=======
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/client/css.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -504,12 +593,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/methods.js">
+=======
+    <entry file="file://$PROJECT_DIR$/client/isClient.js">
+>>>>>>> parent of 2f0d57c... Permissions of buyer and seller
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
