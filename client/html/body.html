@@ -1,0 +1,45 @@
+<!-- napraw sume order w foot -->
+<head>
+    <title>Wawelska Kooperatywa Spożywcza</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <div class="row">
+            {{atNavButton}}
+            {{#if currentUser}}
+                <a class="btn-flat logout">Wyloguj</a>
+            {{else}}
+                <!-- Modal Trigger -->
+                <a class="waves-effect waves-light btn-flat modal-trigger login" href="#modal1">Zaloguj</a>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        {{> atForm}}
+                    </div>
+                </div>
+            {{/if}}
+            <!--loginButtons:{{> loginButtons}}-->
+
+            <h3 class="center">Wawelska Kooperatywa Spożywcza</h3>
+        </div>
+    </header>
+    <main>
+        {{>insertProduct}}
+
+        <div class="row">
+            <div class="col {{#if isInRole 'buyer'}}s8{{else}} s12{{/if}}">
+                {{>productsList}}
+            </div>
+            {{#if isInRole 'buyer'}}
+            <div class="col s4">
+                {{>ordersList}}
+            </div>
+            {{/if}}
+        </div>
+    </main>
+</div>
+</body>

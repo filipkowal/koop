@@ -5,7 +5,8 @@ Products = new Mongo.Collection("products");
 Orders = new Mongo.Collection("orders");
 
 Meteor.methods({
-    insertProduct(productName, producer, price, createdAt, owner, unit, quantity) {
+    insertProduct(productName, producer, price, createdAt, owner, unit, quantity, amounts,
+    sDescription, lDescription, picture) {
         // Check if current user has a seller role
         var loggedInUser = Meteor.user();
         if (!loggedInUser ||
@@ -19,7 +20,11 @@ Meteor.methods({
             createdAt: createdAt,
             owner: owner,
             unit: unit,
-            quantity: quantity
+            quantity: quantity,
+            amounts: amounts,
+            sDescription: sDescription,
+            lDescription: lDescription,
+            picture: picture
         });
     },
     deleteProduct(productsId){
