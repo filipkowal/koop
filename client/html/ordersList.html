@@ -1,0 +1,27 @@
+<template name="ordersList">
+    <table>
+        <caption><h5>Zamówienie</h5></caption>
+        <thead>
+        <tr>
+            <th>Ilość</th>
+            <th>Nazwa</th>
+            <th>Producent</th>
+            <th>Cena</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each showOrders}}
+            <tr>
+                <td>{{quantity}} {{unit}}</td>
+                <td>{{productName}}</td>
+                <td>{{producer}}</td>
+                <td>{{summedPrice}}</td>
+                <td><button class="delete waves-effect waves-teal btn-flat">
+                    <i class="material-icons delete">close</i>
+                </button></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>

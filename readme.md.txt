@@ -7,7 +7,8 @@ admin: admin@example.com
 [v] Przenieœ opracje na bazie do method
 [v] Stwórz typy u¿ytkowników i do walidacje po typach http://guide.meteor.com/accounts.html#roles-and-permissions
 [v] Materialize
-ERROR nie pokazuje listy zamówieñ dopóki siê nie odœwie¿y(showOrders console.log)
+ERROR nie pokazuje listy zamówieñ dopóki siê nie odœwie¿y(showOrders siê uruchamia, ale i tak nie pokazuje. 
+Wygl¹da na to ¿e problem jest po stronie clienta, bo chwilkê czasem widaæ zamówienia)
 [v] Client: Osobne templatey productlisty dla producenta i klienta
 Dostosuj szerokoœæ input w liœcie produktów
 Niech wyœwietla siê w liœcie produktów iloœæ zamówienia nawet po odœwie¿eniu

@@ -37,7 +37,6 @@ if (Meteor.isServer) {
         } else {
             // user not authorized. do not publish secrets
             this.stop();
-            return;
         }
     });
 }
