@@ -7,7 +7,16 @@ if (Meteor .isClient) {
     Template.productsList.onCreated(function () {
         this.autorun(() => {
             this.subscribe('Products');
-            // $('select').material_select();
+        });
+    });
+    
+    Template.productsList.onRendered(function() {
+        var template = this;
+
+        template.subscribe('Products', function () {
+            Tracker.afterFlush(function() {
+                template.$('select').material_select();
+            });
         });
     });
 
