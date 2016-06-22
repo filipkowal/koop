@@ -1,26 +1,42 @@
-By stworzyæ u¿ytkowników z rolami, odkomentuj kod w isServer. Potem mo¿na siê logowaæ na nastêpuj¹cych u¿ytkowników:
-Wszyscy u¿ytkownicy maj¹ pass: 123456
+By stworzyÄ‡ uÅ¼ytkownikÃ³w z rolami, odkomentuj kod w isServer. Potem moÅ¼na siÄ™ logowaÄ‡ na nastÄ™pujÄ…cych uÅ¼ytkownikÃ³w:
+Wszyscy uÅ¼ytkownicy majÄ… pass: 123456
 Klient: klient@example.com
 producent: producent@example.com
 admin: admin@example.com
 
-[v] Przenieœ opracje na bazie do method
-[v] Stwórz typy u¿ytkowników i do walidacje po typach http://guide.meteor.com/accounts.html#roles-and-permissions
+ZADANIA Z [V] SÄ„ UKOÅƒCZONE. ! OZNACZA PILNE/WAÅ»NE ZADANIA
+
+[v] PrzenieÅ› opracje na bazie do method
+[v] StwÃ³rz typy uÅ¼ytkownikÃ³w i do walidacje po typach http://guide.meteor.com/accounts.html#roles-and-permissions
 [v] Materialize
-ERROR nie pokazuje listy zamówieñ dopóki siê nie odœwie¿y(showOrders siê uruchamia, ale i tak nie pokazuje. 
-Wygl¹da na to ¿e problem jest po stronie clienta, bo chwilkê czasem widaæ zamówienia)
+[v]ERROR nie pokazuje listy zamÃ³wieÅ„ dopÃ³ki siÄ™ nie odÅ›wieÅ¼y(showOrders siÄ™ uruchamia, ale i tak nie pokazuje. 
+WyglÄ…da na to Å¼e problem jest po stronie clienta, bo chwilkÄ™ czasem widaÄ‡ zamÃ³wienia)
+	[v] 	Subskrybcje przeniesione tak by aktywowaÅ‚y siÄ™ gdy Å‚aduje siÄ™ odpowiedni template
+	[ ]	! ERROR select do zamawiania nie pokazuje siÄ™ dopÃ³ki siÄ™ nie odÅ›wieÅ¼y
+! ERROR dla nowego uÅ¼ytkownika, nie dziaÅ‚a dodawanie do zamÃ³wieÅ„
+! ERROR funkcja dodawania do zamÃ³wieÅ„ odpala siÄ™ dwukrotnie
 [v] Client: Osobne templatey productlisty dla producenta i klienta
-Dostosuj szerokoœæ input w liœcie produktów
-Niech wyœwietla siê w liœcie produktów iloœæ zamówienia nawet po odœwie¿eniu
-Logowanie z u¿yciem materialize
+Widoczna strzaÅ‚ka od sortowania listy produktÃ³w i zamÃ³wieÅ„
+Opis dÅ‚ugi po klikniÄ™ciu ikonki obok opisu krÃ³tkiego
+Najechanie myszkÄ… podÅ›wietla wiersz tabeli (materialize)
+MoÅ¼liwoÅ›Ä‡ dodania zdjÄ™cia do produktu
+W tabeli poziome kreski oddzielajÄ…ce produkty z wzg. Na kryterium sortowania
+[v] Dostosuj szerokoÅ›Ä‡ input w liÅ›cie produktÃ³w
+Niech wyÅ›wietla siÄ™ w liÅ›cie produktÃ³w iloÅ›Ä‡ zamÃ³wienia nawet po odÅ›wieÅ¼eniu
+[v] Logowanie z uÅ¼yciem materialize
 	[v] Przycisk loginu
 	[v] Przycisk logoutu
-	bezpieczeñstwo
+	[ ]bezpieczeÅ„stwo
 
-scheme, ¿eby methods przyjmowa³y tylko odpowiednie typy danych
-W trakcie dodawania zamówienia, niech zmniejsza siê iloœæ produktu (error jest)
-Mo¿liwoœæ zaznaczenia przy rejestracji czy konto to kooperant czy producent
-Stwórz konto admina
-Admin zatwierdza u¿ytkowników
-
+scheme, Å¼eby methods przyjmowaÅ‚y tylko odpowiednie typy danych
+! W trakcie dodawania zamÃ³wienia, niech zmniejsza siÄ™ iloÅ›Ä‡ produktu (orderedQuantity siÄ™ zwiÄ™ksza)
+! Producent automatyczne przypisywany do produktu
+MoÅ¼liwoÅ›Ä‡ zaznaczenia przy rejestracji czy konto to kooperant czy producent
+! StwÃ³rz konto admina
+	Widoczna lista uÅ¼ytkownikÃ³w
+		Admin zatwierdza nowych uÅ¼ytkownikÃ³w
+		Admin przydiela role 
+		Admin usuwa konta
+! Konto paczkowacza
+	Lista userÃ³w i ich zamÃ³wieÅ„
 routing https://kadira.io/academy/meteor-routing-guide/content/implementing-auth-logic-and-permissions
