@@ -18,7 +18,7 @@ if (Meteor .isClient) {
             var createdAt = new Date();
             var owner = Meteor.userId();
             var unit = event.target.unit.value;
-            var quantity = event.target.quantity.value;
+            var quantity = Number(event.target.quantity.value);
             var sDescription = event.target.sDescription.value;
             var lDescription = event.target.lDescription.value;
             var picture = event.target.picture.value;
@@ -27,8 +27,8 @@ if (Meteor .isClient) {
             var amountElements = document.getElementsByClassName("amounts");
             for(var i = 0; i < amountElements.length; i++){
                 if(amountElements[i].checked){
-                    console.log(amountElements[i].value);
-                    amounts.push(amountElements[i].value);
+                    var amount = Number(amountElements[i].value);
+                    amounts.push(amount);
                 }
 
             }

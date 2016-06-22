@@ -21,6 +21,7 @@ Meteor.methods({
             owner: owner,
             unit: unit,
             quantity: quantity,
+            orderedQuantity: 0,
             amounts: amounts,
             sDescription: sDescription,
             lDescription: lDescription,
@@ -65,9 +66,9 @@ Meteor.methods({
             );
         }
         // Change quantity of product that is left
-        //Error invoking Method 'insertOrder': Internal server error [500]
-        // var orderedQuantity = -1 * quantity;
-        // Products.update(productsId, {$inc: { quantity: orderedQuantity }});
+        // ERROR PRODUCT.UPDATE NIC NIE ROBI
+        console.log(quantity);
+        Products.update({productsId: productsId}, {$inc: { orderedQuantity: quantity }});
 
     },
     deleteOrder(orderId){

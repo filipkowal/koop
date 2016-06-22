@@ -26,6 +26,13 @@ if (Meteor.isServer) {
     //     }
     //
     // });
+    Accounts.onCreateUser(function(options, user) {
+        user.roles = 'buyer';
+        // We still want the default hook's 'profile' behavior.
+        if (options.profile)
+            user.profile = options.profile;
+        return user;
+    });
 
     Meteor.publish('Products', function(){
         return Products.find();
