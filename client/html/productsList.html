@@ -23,20 +23,22 @@
                         <td>{{price}} zł/{{unit}}</td>
                         <td>{{quantity}}</td>
                         <td>{{sDescription}}</td>
-                        <td>{{lDescription}}</td>
-                        <td>
+                        <!--<td>{{lDescription}}</td>-->
+                        <td style="width: 10px">
                             <!--<div class="col s6">-->
                             <!--<input type="text" name="quantity" min="0" max="10" step="0.1" class="orderProduct quantity">-->
                             <!--</div>-->
-                            <div class="input-field col s12">
-                                <select>
-                                    <option value="" disabled selected>Choose your option</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
+                            <!--<div class="input-field col s12">-->
+                                <select class="orderProduct">
+                                    <option value="" disabled selected></option>
+                                    {{#each amount in amounts}}
+                                    <option value="{{amount}}">{{amount}}</option>
+                                    {{/each}}
                                 </select>
-                                <label>Materialize Select</label>
-                            </div>
+                            <!--</div>-->
+                            <!--{{#each amount in amounts}}-->
+                                <!--<p>amount:{{amount}}<p>-->
+                            <!--{{/each}}-->
                         </td>
                     </tr>
                 {{/each}}
