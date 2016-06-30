@@ -5,7 +5,7 @@ Products = new Mongo.Collection("products");
 Orders = new Mongo.Collection("orders");
 
 Meteor.methods({
-    insertProduct(productName, producer, price, createdAt, owner, unit, quantity, amounts,
+    insertProduct(productName, producer, price, createdAt, owner, unit, productQuantity, amounts,
     sDescription, lDescription, picture) {
         // Check if current user has a seller role
         var loggedInUser = Meteor.user();
@@ -20,7 +20,7 @@ Meteor.methods({
             createdAt: createdAt,
             owner: owner,
             unit: unit,
-            quantity: quantity,
+            productQuantity: productQuantity,
             orderedQuantity: 0,
             amounts: amounts,
             sDescription: sDescription,
@@ -28,29 +28,29 @@ Meteor.methods({
             picture: picture
         });
     },
-    deleteProduct(productsId){
+    deleteProduct(productId){
         // Check if current user has a seller role
         var loggedInUser = Meteor.user();
         if (!loggedInUser ||
             !Roles.userIsInRole(loggedInUser, 'seller')) {
             throw new Meteor.Error(403, "Access denied")
         }
-        Products.remove(productsId);
+        Products.remove(productId);
     },
-    insertOrder(productsId, productName, producer, quantity, unit, price, summedPrice){
+    insertOrder(productId, productName, producer, orderQuantity, unit, price, summedPrice, productQuantity, orderedQuantity){
         // Check if current user has a buyer role
         var loggedInUser = Meteor.user();
         if (!loggedInUser ||
             !Roles.userIsInRole(loggedInUser, 'buyer')) {
             throw new Meteor.Error(403, "Access denied")
         }
-        if (quantity!="") {
+        if (productQuantity-orderQuantity>=0){
             Orders.upsert({
-                    productsId: productsId
+                    productId: productId
                 },
                 {
                     $setOnInsert: {
-                        productsId: productsId,
+                        productId: productId,
                         productName: productName,
                         producer: producer,
                         unit: unit,
@@ -58,17 +58,15 @@ Meteor.methods({
                         purchaser: Meteor.userId()
                     },
                     $set: {
-                        quantity: quantity,
+                        orderQuantity: orderQuantity,
                         createdAt: new Date(),
                         summedPrice: summedPrice
                     }
                 }
             );
+            // Change quantity of product that is left
+            Products.update({ _id: productId}, {$set: { orderedQuantity: orderedQuantity }});
         }
-        // Change quantity of product that is left
-        // ERROR PRODUCT.UPDATE NIC NIE ROBI
-        console.log(quantity);
-        Products.update({productsId: productsId}, {$inc: { orderedQuantity: quantity }});
 
     },
     deleteOrder(orderId){

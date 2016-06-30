@@ -27,6 +27,10 @@ if (Meteor .isClient) {
             var sortOrder = Session.get('sortOrder') || 1;
             return Products.find({}, {sort: {[sortAttr]: sortOrder}});
         },
+        quantityLeft() {
+            console.log(this.orderedQuantity);
+            return this.productQuantity - this.orderedQuantity;
+        },
 
         //TABLE SORTING
         nameTriangle() {
@@ -51,22 +55,35 @@ if (Meteor .isClient) {
     Template.productsList.events({
         "change .orderProduct"(event) {
             //Submit a product to Orders collection
-            event.preventDefault();
-            var quantity = Number(event.target.value);
+            // event.preventDefault();
+            console.log(event.target);
+            console.log(event.currentTarget);
+            var orderQuantity = Number(event.target.value);
+            if (orderQuantity==="") {
+                orderQuantity = 0;
+            }
+            console.log('orderQuantity: ', orderQuantity);
+            var productQuantity = this.productQuantity;
             var productName = this.productName;
             var producer = this.producer;
-            var productsId = this._id;
+            var productId = this._id;
             var unit = this.unit;
             var price = Number(this.price);
-            var summedPrice = price * quantity;
+            var summedPrice = price * orderQuantity;
+            var orderedQuantity = this.orderedQuantity + orderQuantity;
+            console.log('var orderedQuantity:', orderedQuantity);
 
-            Meteor.call('insertOrder', productsId, productName, producer, quantity, unit,
-                price, summedPrice);
+            Meteor.call('insertOrder', productId, productName, producer, orderQuantity, unit,
+                price, summedPrice, productQuantity, orderedQuantity);
+
+            //Returning false from a handler is the same as calling both
+            // stopImmediatePropagation and preventDefault on the event.
+            return false;
         },
         "click .delete"() {
             if (confirm("Usunąć produkt?")) {
-                var productsId = this._id;
-                Meteor.call('deleteProduct', productsId);
+                var productId = this._id;
+                Meteor.call('deleteProduct', productId);
             }
         },
         //TABLE SORTING

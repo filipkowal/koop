@@ -21,24 +21,18 @@
                         <td>{{productName}}</td>
                         <td>{{producer}}</td>
                         <td>{{price}} zł/{{unit}}</td>
-                        <td>{{quantity}}</td>
+                        <td>{{quantityLeft}}</td>
                         <td>{{sDescription}}</td>
                         <!--<td>{{lDescription}}</td>-->
                         <td style="width: 10px">
-                            <!--<div class="col s6">-->
-                            <!--<input type="text" name="quantity" min="0" max="10" step="0.1" class="orderProduct quantity">-->
-                            <!--</div>-->
-                            <!--<div class="input-field col s12">-->
+                            <div class="input-field">
                                 <select class="orderProduct">
-                                    <option value="" disabled selected></option>
+                                    <option value=""></option>
                                     {{#each amount in amounts}}
                                     <option value="{{amount}}">{{amount}}</option>
                                     {{/each}}
                                 </select>
-                            <!--</div>-->
-                            <!--{{#each amount in amounts}}-->
-                                <!--<p>amount:{{amount}}<p>-->
-                            <!--{{/each}}-->
+                            </div>
                         </td>
                     </tr>
                 {{/each}}
