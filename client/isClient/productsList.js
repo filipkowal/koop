@@ -28,7 +28,6 @@ if (Meteor .isClient) {
             return Products.find({}, {sort: {[sortAttr]: sortOrder}});
         },
         quantityLeft() {
-            console.log(this.orderedQuantity);
             return this.productQuantity - this.orderedQuantity;
         },
 
@@ -55,9 +54,6 @@ if (Meteor .isClient) {
     Template.productsList.events({
         "change .orderProduct"(event) {
             //Submit a product to Orders collection
-            // event.preventDefault();
-            console.log(event.target);
-            console.log(event.currentTarget);
             var orderQuantity = Number(event.target.value);
             if (orderQuantity==="") {
                 orderQuantity = 0;
@@ -71,10 +67,10 @@ if (Meteor .isClient) {
             var price = Number(this.price);
             var summedPrice = price * orderQuantity;
             var orderedQuantity = this.orderedQuantity + orderQuantity;
-            console.log('var orderedQuantity:', orderedQuantity);
 
             Meteor.call('insertOrder', productId, productName, producer, orderQuantity, unit,
                 price, summedPrice, productQuantity, orderedQuantity);
+            Meteor.call('setOrderedQuantity', productId);
 
             //Returning false from a handler is the same as calling both
             // stopImmediatePropagation and preventDefault on the event.

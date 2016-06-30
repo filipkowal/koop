@@ -37,6 +37,16 @@ Meteor.methods({
         }
         Products.remove(productId);
     },
+    setOrderedQuantity(productId){
+        // Set quantity of product that is ordered by buyers
+        var ordersOfProduct = Orders.find({ productId: productId}).fetch();
+        var orderedQuantity = 0;
+        for(var i=0; i<ordersOfProduct.length; i += 1){
+            orderedQuantity += ordersOfProduct[i].orderQuantity;
+        }
+        console.log(orderedQuantity);
+        Products.update({ _id: productId}, {$set: { orderedQuantity: orderedQuantity }});
+    },
     insertOrder(productId, productName, producer, orderQuantity, unit, price, summedPrice, productQuantity, orderedQuantity){
         // Check if current user has a buyer role
         var loggedInUser = Meteor.user();
@@ -64,8 +74,6 @@ Meteor.methods({
                     }
                 }
             );
-            // Change quantity of product that is left
-            Products.update({ _id: productId}, {$set: { orderedQuantity: orderedQuantity }});
         }
 
     },
