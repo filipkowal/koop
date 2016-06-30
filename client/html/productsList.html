@@ -1,7 +1,5 @@
 <template name="productsList">
-    {{#if currentUser}}
         <!--BUYERS PRODUCTS LIST-->
-        {{#if isInRole 'buyer'}}
             <table id="productsList centered">
                 <caption><h5>Lista produktów</h5></caption>
                 <thead>
@@ -38,9 +36,40 @@
                 {{/each}}
                 </tbody>
             </table>
-        {{/if}}
-        <!--SELLERS PRODUCTS LIST-->
-        {{#if isInRole 'seller'}}
+</template>
+<template name="productsListSeller">
+    <!--SELLERS PRODUCTS LIST-->
+        <table id="productsList centered">
+            <caption><h5>Lista produktów</h5></caption>
+            <thead>
+            <tr>
+                <th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
+                <th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
+                <th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
+                <th>Ilość</th>
+                <th>Opis</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each showProducts}}
+                <tr>
+                    <td>{{productName}}</td>
+                    <td>{{producer}}</td>
+                    <td>{{price}} zł/{{unit}}</td>
+                    <td>{{orderQuantity}}</td>
+                    <td>{{sDescription}}</td>
+                    <td>{{lDescription}}</td>
+                    <td>{{amounts}}</td>
+                    <td><button class="delete waves-effect waves-teal btn-flat">
+                        <i class="material-icons delete">close</i>
+                    </button></td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+</template>
+<template name="productsListLoggedOut">
+            <!--LOGGED OUT PRODUCTS LIST-->
             <table id="productsList centered">
                 <caption><h5>Lista produktów</h5></caption>
                 <thead>
@@ -48,10 +77,11 @@
                     <th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
                     <th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
                     <th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
-                    <th>Ilość</th>
+                    <th>Pozostało</th>
                     <th>Opis</th>
                 </tr>
                 </thead>
+                <!-- <tfoot><tr><td>Pusto!{{orderSum}}</td></tr></tfoot> -->
                 <tbody>
                 {{#each showProducts}}
                     <tr>
@@ -61,41 +91,8 @@
                         <td>{{quantity}}</td>
                         <td>{{sDescription}}</td>
                         <td>{{lDescription}}</td>
-                        <td>{{amounts}}</td>
-                        <td><button class="delete waves-effect waves-teal btn-flat">
-                            <i class="material-icons delete">close</i>
-                        </button></td>
                     </tr>
                 {{/each}}
                 </tbody>
             </table>
-        {{/if}}
-    {{else}}
-        <!--LOGGED OUT PRODUCTS LIST-->
-        <table id="productsList centered">
-            <caption><h5>Lista produktów</h5></caption>
-            <thead>
-            <tr>
-                <th class="name">Nazwa{{#if nameTriangle}} {{{sortOrder}}}{{/if}}</th>
-                <th class="producer">Producent{{#if producerTriangle}} {{{sortOrder}}}{{/if}}</th>
-                <th class="price">Cena{{#if priceTriangle}} {{{sortOrder}}}{{/if}}</th>
-                <th>Pozostało</th>
-                <th>Opis</th>
-            </tr>
-            </thead>
-            <!-- <tfoot><tr><td>Pusto!{{orderSum}}</td></tr></tfoot> -->
-            <tbody>
-            {{#each showProducts}}
-                <tr>
-                    <td>{{productName}}</td>
-                    <td>{{producer}}</td>
-                    <td>{{price}} zł/{{unit}}</td>
-                    <td>{{quantity}}</td>
-                    <td>{{sDescription}}</td>
-                    <td>{{lDescription}}</td>
-                </tr>
-            {{/each}}
-            </tbody>
-        </table>
-    {{/if}}
 </template>

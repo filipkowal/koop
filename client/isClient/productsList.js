@@ -18,6 +18,7 @@ if (Meteor .isClient) {
                 template.$('select').material_select();
             });
         });
+
     });
 
     Template.productsList.helpers({
@@ -48,7 +49,7 @@ if (Meteor .isClient) {
             else if (Session.get('sortOrder') === -1) {
                 return '&blacktriangledown;';
             }
-        }
+        },
     });
 
     Template.productsList.events({
@@ -69,7 +70,7 @@ if (Meteor .isClient) {
             var orderedQuantity = this.orderedQuantity + orderQuantity;
 
             Meteor.call('insertOrder', productId, productName, producer, orderQuantity, unit,
-                price, summedPrice, productQuantity, orderedQuantity);
+                price, summedPrice, productQuantity);
             Meteor.call('setOrderedQuantity', productId);
 
             //Returning false from a handler is the same as calling both
@@ -99,4 +100,10 @@ if (Meteor .isClient) {
             Session.set('sortOrder', Session.get('sortPriceOrder'));
         }
     });
+
+    Template.productsListSeller.inheritsHelpersFrom("productsList");
+    Template.productsListSeller.inheritsEventsFrom("productsList");
+    Template.productsListLoggedOut.inheritsHelpersFrom("productsList");
+    Template.productsListLoggedOut.inheritsEventsFrom("productsList");
+    
 }

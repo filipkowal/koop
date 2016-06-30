@@ -47,7 +47,7 @@ Meteor.methods({
         console.log(orderedQuantity);
         Products.update({ _id: productId}, {$set: { orderedQuantity: orderedQuantity }});
     },
-    insertOrder(productId, productName, producer, orderQuantity, unit, price, summedPrice, productQuantity, orderedQuantity){
+    insertOrder(productId, productName, producer, orderQuantity, unit, price, summedPrice, productQuantity){
         // Check if current user has a buyer role
         var loggedInUser = Meteor.user();
         if (!loggedInUser ||

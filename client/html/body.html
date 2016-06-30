@@ -30,13 +30,23 @@
         {{>insertProduct}}
 
         <div class="row">
-            <div class="col {{#if isInRole 'buyer'}}s8{{else}} s12{{/if}}">
-                {{>productsList}}
-            </div>
             {{#if isInRole 'buyer'}}
-            <div class="col s4">
-                {{>ordersList}}
-            </div>
+                <div class="col s8">
+                    {{>productsList}}
+                </div>
+                <div class="col s4">
+                    {{>ordersList}}
+                </div>
+                {{else}}
+                    {{#if isInRole 'seller'}}
+                        <div class="col s12">
+                            {{>productsListSeller}}
+                        </div>
+                    {{else}}
+                        <div class="col s12">
+                            {{>productsListLoggedOut}}
+                        </div>
+                    {{/if}}
             {{/if}}
         </div>
     </main>

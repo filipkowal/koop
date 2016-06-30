@@ -1,6 +1,3 @@
-/**
- * Created by filip on 2016-06-17.
- */
 if (Meteor .isClient) {
 
     //SUBSCRIBE TO ORDERS WHEN ORDERSLIST TEMPLATE IS CREATED
